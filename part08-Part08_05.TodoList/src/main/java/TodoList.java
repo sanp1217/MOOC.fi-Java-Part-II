@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class TodoList {
-    ArrayList<String> list;
+    private ArrayList<String> list;
     
     public TodoList(){
         this.list = new ArrayList<>();
