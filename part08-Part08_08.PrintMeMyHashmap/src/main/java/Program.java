@@ -10,6 +10,10 @@ public class Program {
         hashmap.put("i.e", "more precisely");
 
         printKeys(hashmap);
+        System.out.println("---");
+        printKeysWhere(hashmap, "i");
+        System.out.println("---");
+        printValuesOfKeysWhere(hashmap, ".e");
     }
 
     public static void printKeys(HashMap<String, String> hashmap){
@@ -23,4 +27,38 @@ public class Program {
             System.out.println(keys.get(i));
         }
     }
+    
+    public static void printKeysWhere(HashMap<String, String> hashmap, String text){
+        ArrayList<String> keys = new ArrayList<>();
+        
+        for(String key: hashmap.keySet()){
+            if(!key.contains(text)){
+                continue;
+            }
+            
+            keys.add(key);
+        }
+        
+        for(String key: keys){
+            System.out.println(key);
+        }
+    }
+    
+    public static void printValuesOfKeysWhere(HashMap<String, String> hashmap, String text){
+        ArrayList<String> values = new ArrayList<>();
+        
+        for(String key: hashmap.keySet()){
+            if(!key.contains(text)){
+                continue;
+            }
+            
+            values.add(hashmap.get(key));
+        }
+        
+        for(String value: values){
+            System.out.println(value);
+        }
+    }
+    
+    
 }
