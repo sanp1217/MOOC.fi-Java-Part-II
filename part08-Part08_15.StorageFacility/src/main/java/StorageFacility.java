@@ -18,4 +18,24 @@ public class StorageFacility {
     public ArrayList<String> contents(String storageUnit){
         return this.storageMap.getOrDefault(storageUnit, new ArrayList<>());
     }
+    
+    public void remove(String storageUnit, String item){
+        this.storageMap.get(storageUnit).remove(item);
+        
+        if(this.storageMap.get(storageUnit).size() == 0){
+            this.storageMap.remove(storageUnit);
+        }
+    }
+    
+    public ArrayList<String> storageUnits(){
+        ArrayList<String> units = new ArrayList<>();
+        
+        for(String unit: this.storageMap.keySet()){
+            if(!this.storageMap.get(unit).isEmpty()){
+                units.add(unit);
+            }
+        }
+        
+        return units;
+    }
 }
