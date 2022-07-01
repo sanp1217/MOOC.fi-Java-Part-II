@@ -1,22 +1,23 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class VehicleRegistry {
     private HashMap<LicensePlate, String> owners;
     
     public VehicleRegistry(){
-        owners = new HashMap<>();
+        this.owners = new HashMap<>();
     }
     
     public boolean add(LicensePlate licensePlate, String owner){
-        if(owners.get(licensePlate) == null){
-            owners.put(licensePlate, owner);
+        if(this.owners.get(licensePlate) == null){
+            this.owners.put(licensePlate, owner);
             return true;
         }
         return false;
     }
     
     public String get(LicensePlate licensePlate){
-        return owners.get(licensePlate);
+        return this.owners.get(licensePlate);
     }
     
     public boolean remove(LicensePlate licensePlate){
@@ -26,5 +27,27 @@ public class VehicleRegistry {
         }
         
         return false;
+    }
+    
+    public void printLicensePlates(){
+        for(LicensePlate plate: this.owners.keySet()){
+            System.out.println(plate.toString());
+        }
+    }
+    
+    public void printOwners(){
+        ArrayList<String> ownersNonRepeated = new ArrayList<>();
+        
+        //Adding values in hashmap to a list that will have no repeats.
+        for(String owners: this.owners.values()){
+            if(!ownersNonRepeated.contains(owners)){
+                ownersNonRepeated.add(owners);
+            }
+        }
+        
+        //Printing the owners.
+        for(String owners: ownersNonRepeated){
+            System.out.println(owners);
+        }
     }
 }
