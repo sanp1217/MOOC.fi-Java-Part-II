@@ -1,13 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.ArrayList;
+import java.util.HashMap;
 
-/**
- *
- * @author choco
- */
+
 public class StorageFacility {
+    HashMap<String, ArrayList<String>> storageMap;
     
+    public StorageFacility(){
+        this.storageMap = new HashMap<>();
+    }
+    
+    public void add(String unit, String item){
+        this.storageMap.putIfAbsent(unit, new ArrayList<>());
+        
+        this.storageMap.get(unit).add(item);
+    }
+    
+    public ArrayList<String> contents(String storageUnit){
+        return this.storageMap.getOrDefault(storageUnit, new ArrayList<>());
+    }
 }
