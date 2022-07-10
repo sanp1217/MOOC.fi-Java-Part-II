@@ -17,6 +17,7 @@ public class ChangeHistory {
         this.prodHistory.clear();
     }
     
+    @Override
     public String toString(){
         return this.prodHistory.toString();
     }
