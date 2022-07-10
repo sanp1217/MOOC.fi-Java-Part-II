@@ -26,9 +26,8 @@ public class Item {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + this.weight;
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -44,9 +43,6 @@ public class Item {
             return false;
         }
         final Item other = (Item) obj;
-        if (this.weight != other.weight) {
-            return false;
-        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
