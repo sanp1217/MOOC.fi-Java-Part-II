@@ -1,9 +1,9 @@
 
-public class TripleTacoBox implements TacoBox{
+public class CustomTacoBox implements TacoBox{
     private int tacos;
     
-    public TripleTacoBox(){
-        this.tacos = 3;
+    public CustomTacoBox(int tacos){
+        this.tacos = tacos;
     }
     
     public int tacosRemaining(){
