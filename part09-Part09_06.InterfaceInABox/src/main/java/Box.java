@@ -2,9 +2,9 @@
 import java.util.ArrayList;
 
 
-public class Box {
+public class Box implements Packable{
     private ArrayList<Packable> items;
-    private double capacityInKG, currentWeight;
+    private double capacityInKG;
     
     public Box(double capacityInKG){
         this.capacityInKG = capacityInKG;
@@ -12,14 +12,23 @@ public class Box {
     }
     
     public void add(Packable item){
-        if(item.weight() + this.currentWeight <= this.capacityInKG){
+        if(item.weight() + this.weight() <= this.capacityInKG){
             this.items.add(item);
-            this.currentWeight += item.weight();
         }
     }
     
+    public double weight(){
+        double weight = 0;
+        
+        for(Packable item: this.items){
+            weight += item.weight();
+        }
+        
+        return weight;
+    }
+    
     public String toString(){
-        return "Box: " + this.items.size() + " items, total weight " + this.currentWeight + " kg";
+        return "Box: " + this.items.size() + " items, total weight " + this.weight() + " kg";
     }
     
     
