@@ -1,6 +1,8 @@
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 
 public class Warehouse {
@@ -38,6 +40,12 @@ public class Warehouse {
         }
         
         return false;
+    }
+    
+    public Set<String> products(){
+        Set<String> productSet = new HashSet<>();
+        productSet = this.productsWithPrices.keySet();
+        return productSet;
     }
     
 }
