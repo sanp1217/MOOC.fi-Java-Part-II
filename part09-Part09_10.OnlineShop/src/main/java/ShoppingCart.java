@@ -22,4 +22,10 @@ public class ShoppingCart {
         
         return price;
     }
+    
+    public void print(){
+        for(Item item: this.products){
+            System.out.println(item);        
+        }
+    }
 }
