@@ -11,8 +11,12 @@ public class LiteracyResult {
         this.litPercent = litPercent;
     }
     
+    public double getLitPercent(){
+        return this.litPercent;
+    }
+    
     @Override
     public String toString(){
-        return this.country + "(" + this.year + "), " + this.gender + ", " + this.litPercent; 
+        return this.country + " (" + this.year + "), " + this.gender + ", " + this.litPercent; 
     }
 }
