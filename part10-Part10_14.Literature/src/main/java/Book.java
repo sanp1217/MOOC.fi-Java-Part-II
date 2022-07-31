@@ -18,6 +18,6 @@ public class Book {
     
     @Override
     public String toString(){
-        return this.name + " (recommended for " + this.ageRecommendation + "year-olds or older";
+        return this.name + " (recommended for " + this.ageRecommendation + " year-olds or older)";
     }
 }
