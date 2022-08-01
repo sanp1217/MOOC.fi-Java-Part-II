@@ -9,4 +9,11 @@ public class Checker {
         }
         return false;
     }
+    
+    public boolean allVowels(String string){
+        if(string.matches("(a|e|i|o|u)+")){
+            return true;
+        }
+        return false;
+    }
 }
