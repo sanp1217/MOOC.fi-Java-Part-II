@@ -40,4 +40,14 @@ public class Employees {
         }
     }
     
+    public void fire(Education education){
+        Iterator<Person> iterator = this.employees.iterator();
+        
+        while(iterator.hasNext()){
+            if(iterator.next().getEducation() == education){
+                iterator.remove();
+            }
+        }
+    }
+    
 }
