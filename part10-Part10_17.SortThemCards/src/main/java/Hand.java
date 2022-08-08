@@ -32,7 +32,7 @@ public class Hand implements Comparable<Hand>{
         
         return total;
     }
-
+    
     @Override
     public int compareTo(Hand hand) {
         int handTotal;
