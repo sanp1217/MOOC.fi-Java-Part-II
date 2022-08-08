@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class Hand {
+public class Hand implements Comparable<Hand>{
     private List<Card> hand;
     
     public Hand(){
@@ -21,5 +21,26 @@ public class Hand {
     
     public void sort(){
         Collections.sort(this.hand);
+    }
+    
+    private int total(){
+        int total = 0;
+        
+        for(Card  card: this.hand){
+            total += card.getValue();
+        }
+        
+        return total;
+    }
+
+    @Override
+    public int compareTo(Hand hand) {
+        int handTotal;
+        int comparedTotal;
+        
+        handTotal = hand.total();
+        comparedTotal = this.total();
+        
+        return comparedTotal - handTotal;
     }
 }
