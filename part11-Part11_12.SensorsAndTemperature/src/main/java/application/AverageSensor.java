@@ -7,10 +7,11 @@ import java.util.List;
 
 public class AverageSensor implements Sensor{
     private List<Sensor> sensors;
-    private boolean status;
+    private List<Integer> readings;
     
     public AverageSensor(){
         this.sensors = new ArrayList<>();
+        this.readings = new ArrayList<>();
     }
     
     public void addSensor(Sensor toAdd){
@@ -42,11 +43,19 @@ public class AverageSensor implements Sensor{
       }
       
       int sum = 0;
+      int average;
       for(Sensor sensor: this.sensors){
           sum += sensor.read();
       }
       
-      return sum / this.sensors.size();
+      average = sum / this.sensors.size();
+      this.readings.add(average);
+      
+      return average;
+    }
+    
+    public List<Integer> readings(){
+        return this.readings;
     }
     
 }
