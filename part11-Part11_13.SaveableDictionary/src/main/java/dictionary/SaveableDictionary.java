@@ -32,4 +32,21 @@ public class SaveableDictionary {
         
         return translation;
     }
+    
+    public void delete(String word){
+        String translation = null;
+        
+        if(this.translationsMap.containsKey(word)){
+            this.translationsMap.remove(word);
+        }
+        
+       if(this.translationsMap.containsValue(word)){
+           for(String key: this.translationsMap.keySet()){
+               if(this.translationsMap.get(key).equals(word)){
+                   translation = key;
+                   this.translationsMap.remove(translation);
+               }
+           }
+       }
+    }
 }
