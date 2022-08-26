@@ -16,6 +16,20 @@ public class SaveableDictionary {
     }
     
     public String translate(String word){
+        String translation = null;
         
+        if(this.translationsMap.containsKey(word)){
+            translation = this.translationsMap.get(word);
+        }
+        
+        if(this.translationsMap.containsValue(word)){
+            for(String key: this.translationsMap.keySet()){
+                if(this.translationsMap.get(key).equals(word)){
+                    translation = key;
+                }
+            }
+        }
+        
+        return translation;
     }
 }
