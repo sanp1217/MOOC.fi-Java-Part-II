@@ -1,6 +1,7 @@
 
 package dictionary;
 
+import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,19 @@ public class SaveableDictionary {
         }
     }
     
+    public boolean save(){
+        try(PrintWriter writer = new PrintWriter(this.file)){
+            for(String key: this.translationsMap.keySet()){
+                writer.println(key + ":" + this.translationsMap.get(key));
+            }
+            return true;
+            
+        }catch(Exception e){
+            System.out.println("Error" + e.getMessage());
+            return false;
+        }
+    }
+    
     public void add(String words, String translation){
         this.translationsMap.putIfAbsent(words, translation);
     }
@@ -58,19 +72,19 @@ public class SaveableDictionary {
     }
     
     public void delete(String word){
-        String translation = null;
         
         if(this.translationsMap.containsKey(word)){
             this.translationsMap.remove(word);
         }
         
+        String remove = "";
        if(this.translationsMap.containsValue(word)){
            for(String key: this.translationsMap.keySet()){
                if(this.translationsMap.get(key).equals(word)){
-                   translation = key;
-                   this.translationsMap.remove(translation);
+                   remove = key;
                }
            }
+           this.translationsMap.remove(remove);
        }
     }
 }
