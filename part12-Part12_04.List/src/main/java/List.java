@@ -27,5 +27,14 @@ public class List<Type> {
         this.values = newValues;
     }
     
+    public boolean contains(Type value){
+        for(int i = 0; i < this.firstFreeIndex; i++){
+            if(this.values[i].equals(value)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     
 }
