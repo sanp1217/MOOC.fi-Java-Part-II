@@ -35,6 +35,23 @@ public class List<Type> {
         }
         return false;
     }
+
+    
+    private int indexOfValue(Type value){
+        for(int i = 0; i < this.firstFreeIndex; i++){
+            if(this.values[i].equals(value)){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+    
+    private void moveToTheLeft(int fromIndex){
+        for(int i = fromIndex; i < this.firstFreeIndex - 1; i++){
+            this.values[i] = this.values[i + 1];
+        }
+    }
     
     
 }
