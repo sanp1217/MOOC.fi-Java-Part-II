@@ -35,7 +35,17 @@ public class List<Type> {
         }
         return false;
     }
-
+    
+    public void remove(Type value){
+        int indexOfValue = indexOfValue(value);
+        
+        if(indexOfValue < 0){
+            return;
+        }
+        
+        moveToTheLeft(indexOfValue);
+        this.firstFreeIndex--;
+    }
     
     private int indexOfValue(Type value){
         for(int i = 0; i < this.firstFreeIndex; i++){
