@@ -42,7 +42,7 @@ public class List<Type> {
         this.firstFreeIndex--;
     }
     
-    private int indexOfValue(Type value){
+    public int indexOfValue(Type value){
         for(int i = 0; i < this.firstFreeIndex; i++){
             if(this.values[i].equals(value)){
                 return i;
@@ -56,6 +56,14 @@ public class List<Type> {
         for(int i = fromIndex; i < this.firstFreeIndex - 1; i++){
             this.values[i] = this.values[i + 1];
         }
+    }
+    
+    public Type value(int index){
+        if(index < 0 || index >= this.firstFreeIndex){
+            throw new ArrayIndexOutOfBoundsException("Index " + index + "outside of [0 " + this.firstFreeIndex + "]");
+        }
+        
+        return this.values[index];
     }
     
     
