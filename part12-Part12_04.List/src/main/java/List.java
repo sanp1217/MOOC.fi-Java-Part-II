@@ -66,5 +66,9 @@ public class List<Type> {
         return this.values[index];
     }
     
+    public int size(){
+        return this.firstFreeIndex;
+    }
+    
     
 }
