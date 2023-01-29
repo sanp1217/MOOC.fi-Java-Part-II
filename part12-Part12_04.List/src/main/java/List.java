@@ -28,12 +28,7 @@ public class List<Type> {
     }
     
     public boolean contains(Type value){
-        for(int i = 0; i < this.firstFreeIndex; i++){
-            if(this.values[i].equals(value)){
-                return true;
-            }
-        }
-        return false;
+        return indexOfValue(value) >= 0;
     }
     
     public void remove(Type value){
